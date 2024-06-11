@@ -17,6 +17,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.example.capstonefix.PanduanActivity
 import com.example.capstonefix.ui.camera.CameraActivity
 import com.example.capstonefix.ui.scan.ResultScanActivity
 import com.example.capstonefix.databinding.FragmentHomeBinding
@@ -86,7 +87,6 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-
     }
 
     override fun onCreateView(
@@ -118,6 +118,14 @@ class HomeFragment : Fragment() {
         }
         binding.btnClose.setOnClickListener{
             binding.PopupContainer.visibility = View.GONE
+        }
+        binding.gambarArtikel.setOnClickListener{
+            val intent = Intent(requireContext(), PanduanActivity::class.java)
+            startActivity(intent)
+        }
+        binding.cardArtikel.setOnClickListener{
+            val intent = Intent(requireContext(), PanduanActivity::class.java)
+            startActivity(intent)
         }
     }
 
