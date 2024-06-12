@@ -167,7 +167,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.pbLogin.isVisible = state
         binding.inputEmail.isInvisible = state
         binding.inputPassword.isInvisible = state
-        binding.btnLogin.isInvisible = state
+        binding.btnDaftar.isInvisible = state
         binding.containerLogin.isInvisible = state
         binding.inputConfirmPassword.isInvisible = state
     }
