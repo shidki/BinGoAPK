@@ -24,9 +24,6 @@
             android:name=".PanduanActivity"
             android:exported="false" />
         <activity
-            android:name=".PanduaanActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
