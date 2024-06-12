@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.capstonefix.SplashActivity
 import com.example.capstonefix.databinding.ActivityMainBinding
+import com.example.capstonefix.repository.Preference
+import com.example.capstonefix.ui.Dashboard.dashboard.DashboardActivity
 import com.example.capstonefix.ui.Login.LoginActivity
 import com.example.capstonefix.ui.SignUp.SignUpActivity
 
@@ -23,6 +25,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.containerPage.setOnClickListener{
             val intent = Intent(this@MainActivity, SplashActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        val token = Preference.getToken(this)
+        if(token != null){
+            val (username, email) = Preference.getInfo(this)
+            val intent = Intent(this,DashboardActivity::class.java)
+            intent.putExtra("username",username)
+            intent.putExtra("email",email)
             startActivity(intent)
             finish()
         }

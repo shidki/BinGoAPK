@@ -1,17 +1,18 @@
 package com.example.capstonefix.ui.Dashboard.dashboard.Fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.capstonefix.R
+import androidx.core.app.ActivityOptionsCompat
 import com.example.capstonefix.databinding.FragmentProfileBinding
 import com.example.capstonefix.repository.Preference
 import com.example.capstonefix.ui.Login.LoginActivity
 import com.example.capstonefix.ui.Profile.EditProfileActivity
-
+import androidx.core.util.Pair
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
@@ -34,18 +35,26 @@ class ProfileFragment : Fragment() {
         arguments?.let {
             val username = it.getString("username")
             val email = it.getString("email")
-            val password = it.getString("password")
 
             binding.editProfile.setOnClickListener{
+                val optionsCompat: ActivityOptionsCompat =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        view.context as Activity,
+                        Pair(binding.gambarProfile, "gambar"),
+                        Pair(binding.judulProfile, "judul"),
+                        Pair(binding.linearLayout,"input"),
+                        Pair(binding.btnLogout,"button")
+                    )
+
                 val intent = Intent(requireContext(), EditProfileActivity::class.java)
                 intent.putExtra("username",username)
                 intent.putExtra("email",email)
-                intent.putExtra("password",password)
-                startActivity(intent)
+
+                startActivity(intent,optionsCompat.toBundle())
             }
 
-            binding.namaProfile.text = username
-            binding.emailProfile.text = email
+            binding.namaProfile.text = ": $username"
+            binding.emailProfile.text = ": $email"
 
         }
 

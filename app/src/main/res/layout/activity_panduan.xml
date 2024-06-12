@@ -7,9 +7,10 @@
     tools:context=".PanduanActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
+        android:gravity="center"
         android:id="@+id/topAppBar"
-        android:background="@drawable/bg_topapp_bar"
+        android:background="@drawable/bg_apptopnav"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,11 +20,10 @@
             android:layout_height="?attr/actionBarSize"
             app:title="">
             <ImageView
-                android:id="@+id/toolbar_logo"
-                android:layout_width="100dp"
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/logo_capstone" />
+                android:src="@drawable/back" />
         </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 

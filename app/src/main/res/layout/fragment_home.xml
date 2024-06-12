@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgapps"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.Dashboard.dashboard.Fragment.HomeFragment">
 
@@ -13,179 +14,185 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
-
+            >
             <LinearLayout
-                android:id="@+id/containerGreeting"
+                android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                >
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/nav_host_fragment">
+                <ImageView
+                    android:id="@+id/toolbar_logo"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo_capstone" />
 
                 <TextView
                     android:id="@+id/sapaan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text=""
+                    android:text="Hai, Shidki"
                     android:textColor="@android:color/black"
-                    android:textSize="23sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:layout_marginTop="-10dp"
-                    android:text="Ingin tahu tentang sampah apa hari ini?"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp" />
             </LinearLayout>
-
-
-
-            <ImageView
-                android:layout_marginTop="30dp"
-                android:id="@+id/gambar_artikel"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/smph"
-                android:background="@drawable/radiuss"
-                android:clipToOutline="true" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_artikel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-18dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/design_default_color_background">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="13dp">
-
-                    <TextView
-                        android:id="@+id/judul_artikel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_bold"
-                        android:justificationMode="inter_word"
-                        android:text="Panduan Lengkap untuk Memahami dan Mengelola Berbagai Jenis Sampah di Lingkungan Kita"
-                        android:textColor="@android:color/black"
-                        android:textSize="13sp"
-                         />
-
-                    <TextView
-                        android:id="@+id/deskripsi_artikel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="Temukan cara terbaik untuk mendaur ulang atau membuangnya secara bertanggung jawab."
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="11sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
             <LinearLayout
-                android:id="@+id/containerUploadPhoto"
+                android:background="@drawable/bg_fragment"
+                android:id="@+id/containerBawah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_artikel">
+                android:padding="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="Unggah Foto Anda"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                <ImageView
+                    android:padding="16dp"
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/gambar_artikel"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/smph"
+                    android:background="@drawable/radiuss"
+                    android:clipToOutline="true" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_bold"
-                    android:paddingBottom="8dp"
-                    android:text="Unggah foto sampah Anda untuk mengetahui jenis sampah."
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:id="@+id/containerPhoto"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_artikel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:id="@+id/selectedImageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="119dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_place_holder"
-                        android:clipToOutline="true" />
+                    android:layout_marginTop="-18dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardBackgroundColor="@color/design_default_color_background">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:layout_marginTop="20dp"
-                        >
-                        <Button
-                            android:id="@+id/buttonCapture"
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:backgroundTint="#666666"
-                            android:textSize="10sp"
-                            android:fontFamily="@font/poppins_bold"
-                            android:text="Kamera" />
+                        android:orientation="vertical"
+                        android:padding="13dp">
 
-                        <Button
-                            android:id="@+id/buttonGallery"
-                            android:layout_width="120dp"
-                            android:layout_marginStart="40dp"
+                        <TextView
+                            android:id="@+id/judul_artikel"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:backgroundTint="#666666"
-                            android:textSize="10sp"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="Galeri" />
+                            android:justificationMode="inter_word"
+                            android:text="Panduan Lengkap untuk Memahami dan Mengelola Berbagai Jenis Sampah di Lingkungan Kita"
+                            android:textColor="@android:color/black"
+                            android:textSize="13sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/deskripsi_artikel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="Temukan cara terbaik untuk mendaur ulang atau membuangnya secara bertanggung jawab."
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="11sp" />
                     </LinearLayout>
-                </LinearLayout>
-                <Button
-                    android:id="@+id/buttonCheck"
-                    android:layout_width="150dp"
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:id="@+id/containerUploadPhoto"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:backgroundTint="#2D6F45"
-                    android:fontFamily="@font/poppins_bold"
-                    android:padding="8dp"
-                    android:text="Check"
-                    android:textColor="@android:color/white" />
+                    android:layout_marginTop="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_artikel">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Unggah Foto Anda"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:paddingBottom="8dp"
+                        android:text="Unggah foto sampah Anda untuk mengetahui jenis sampah."
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:id="@+id/containerPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/selectedImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="119dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_place_holder"
+                            android:clipToOutline="true" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginTop="20dp"
+                            >
+                            <Button
+                                android:id="@+id/buttonCapture"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:backgroundTint="#666666"
+                                android:textSize="10sp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Kamera" />
+
+                            <Button
+                                android:id="@+id/buttonGallery"
+                                android:layout_width="120dp"
+                                android:layout_marginStart="40dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:backgroundTint="#666666"
+                                android:textSize="10sp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Galeri" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/buttonCheck"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="#2D6F45"
+                        android:fontFamily="@font/poppins_bold"
+                        android:padding="8dp"
+                        android:text="Check"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

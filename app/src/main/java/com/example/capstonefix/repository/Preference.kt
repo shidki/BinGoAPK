@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 
 object Preference {
     private const val PREF_NAME = "onSignIn"
+    private const val PREF_INFO = "info"
+
     private const val TOKEN_KEY = "token"
 
     fun initPref(context: Context, name: String): SharedPreferences {
@@ -21,10 +23,24 @@ object Preference {
         editor.putString("token", token)
         editor.apply()
     }
+    fun saveInfo(username: String, email: String, context: Context) {
+        val sharedPref = context.getSharedPreferences(PREF_INFO, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("username", username)
+        editor.putString("email", email)
+        editor.apply()
+    }
     fun getToken(context: Context): String? {
         val sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         return sharedPref.getString(TOKEN_KEY, null)
     }
+    fun getInfo(context: Context): Pair<String?, String?> {
+        val sharedPref = context.getSharedPreferences(PREF_INFO, Context.MODE_PRIVATE)
+        val username = sharedPref.getString("username", null)
+        val email = sharedPref.getString("email", null)
+        return Pair(username, email)
+    }
+
 
     fun logOut(context: Context) {
         val editor = editorPreference(context, "onSignIn")

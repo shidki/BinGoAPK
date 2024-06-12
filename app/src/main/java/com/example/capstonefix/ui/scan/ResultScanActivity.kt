@@ -1,11 +1,13 @@
 package com.example.capstonefix.ui.scan
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.capstonefix.databinding.ActivityResultScanBinding
 import com.example.capstonefix.helper.ImageClassifierHelper
+import com.example.capstonefix.ui.Dashboard.dashboard.DashboardActivity
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.text.NumberFormat
 
@@ -24,7 +26,10 @@ class ResultScanActivity : AppCompatActivity() {
             binding.gambarResult.setImageURI(it)
         }
 
-
+        binding.back.setOnClickListener{
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+        }
         imageClassifierHelper = ImageClassifierHelper(
             context = this,
             classifierListener = object : ImageClassifierHelper.ClassifierListener {

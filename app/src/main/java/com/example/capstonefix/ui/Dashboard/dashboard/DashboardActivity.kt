@@ -43,7 +43,6 @@ class DashboardActivity : AppCompatActivity() {
             val bundle = Bundle().apply {
                 putString("username", username)
                 putString("email", email)
-                putString("password", password)
             }
             when (item) {
                 R.id.homes -> {
